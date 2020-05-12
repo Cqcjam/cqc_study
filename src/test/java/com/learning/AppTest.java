@@ -1,13 +1,19 @@
 package com.learning;
 
 
+import com.alibaba.fastjson.JSON;
 import com.cqc.learning.MainApplication;
-import org.junit.*;
+import com.cqc.learning.spring.bean.TestConfiguration;
+import com.cqc.learning.spring.bean.entity.Person;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {AppTest.class, MainApplication.class})
@@ -23,14 +29,19 @@ public class AppTest {
 		System.out.println("before test。。。");
 	}
 
+	@Autowired
+	TestConfiguration testConfiguration;
+
 	@Test
-	public void shouldAnswerWithTrue() {
-		assertTrue(true);
-		try {
-			Assert.assertEquals(1100, 1100);
-		}catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
+	public void shouldAnswerWithTrue() throws ClassNotFoundException{
+		Person person = testConfiguration.getPerson();
+		System.out.println(JSON.toJSONString(person));
+		Class person1 = Class.forName("com.cqc.learning.spring.bean.entity.Person");
+		System.out.println(person1);
+
+		System.out.println(Person.class.getClassLoader().getParent());
+
+
 	}
 
 	@After

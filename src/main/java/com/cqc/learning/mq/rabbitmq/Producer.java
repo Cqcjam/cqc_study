@@ -51,7 +51,7 @@ public class Producer {
 			String message = "hello world";
 			System.out.println("生产者开始发送");
 			channel.basicPublish(EXCHANGE_NAME, ROUTING_KEY, MessageProperties.PERSISTENT_TEXT_PLAIN, message.getBytes());
-			channel.basicPublish();
+//			channel.basicPublish();
 			System.out.println("生产者发送完成");
 			//7、关闭资源
 			channel.close();
