@@ -15,9 +15,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+/**
+ * 执行顺序
+ * beforeClass-->before-->testInstance-->after-->afterClass
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {AppTest.class, MainApplication.class})
 public class AppTest {
+	@Autowired
+	TestConfiguration testConfiguration;
 
 	@BeforeClass
 	public static void testBeforeClass() {
@@ -29,19 +35,13 @@ public class AppTest {
 		System.out.println("before test。。。");
 	}
 
-	@Autowired
-	TestConfiguration testConfiguration;
-
 	@Test
 	public void shouldAnswerWithTrue() throws ClassNotFoundException{
 		Person person = testConfiguration.getPerson();
 		System.out.println(JSON.toJSONString(person));
 		Class person1 = Class.forName("com.cqc.learning.spring.bean.entity.Person");
 		System.out.println(person1);
-
 		System.out.println(Person.class.getClassLoader().getParent());
-
-
 	}
 
 	@After

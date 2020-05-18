@@ -18,5 +18,5 @@ package com.cqc.learning.designmode.constructmode.proxy;
  **/
 public interface AbstractSubject {
 
-	public void dealSubject();
+	void dealSubject();
 }
