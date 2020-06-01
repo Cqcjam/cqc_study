@@ -5,7 +5,6 @@ import lombok.Setter;
 
 /**
  * @author caoqingcong
- * @description TODO
  * @projectName cqc_study
  * @packageName com.cqc.learning.spring.bean.entity
  * @date 2020/4/19-16:00

@@ -2,7 +2,6 @@ package com.cqc.learning.java.base;
 
 /**
  * @author caoqingcong
- * @description TODO
  * @projectName cqc_study
  * @packageName com.cqc.learning.java.jvm
  * @date 2020/5/14-10:22

@@ -4,7 +4,6 @@ import com.cqc.learning.spring.entity.TOrderDetail;
 
 /**
  * @author caoqingcong
- * @description TODO
  * @projectName cqc_study
  * @packageName com.cqc.learning.spring.service.service
  * @date 2020/5/31-17:49

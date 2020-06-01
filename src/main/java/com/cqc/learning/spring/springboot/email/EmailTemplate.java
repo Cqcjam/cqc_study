@@ -22,7 +22,6 @@
 //
 ///**
 // * @author caoqingcong
-// * @description TODO
 // * @projectName cqc_study
 // * @packageName com.cqc.learning.spring.springboot.email
 // * @date 2020/5/25-22:16

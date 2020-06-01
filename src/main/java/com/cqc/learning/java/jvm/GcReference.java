@@ -10,7 +10,6 @@ import java.util.Date;
 
 /**
  * @author caoqingcong
- * @description TODO
  * @projectName cqc_study
  * @packageName com.cqc.learning.java.jvm
  * @date 2020/5/7-12:56
