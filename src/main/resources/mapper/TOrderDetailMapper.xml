@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqc.learning.spring.mapper.mappers.TOrderDetailMapper">
+
+    <resultMap type="com.cqc.learning.spring.entity.TOrderDetail" id="TOrderDetailMap">
+        <result property="id" column="id" />
+        <result property="sid" column="sid" />
+        <result property="oid" column="oid" />
+        <result property="type" column="type" />
+        <result property="state" column="state" />
+        <result property="skuCode" column="sku_code" />
+        <result property="brand" column="brand" />
+        <result property="name" column="name" />
+        <result property="cat" column="cat" />
+        <result property="property" column="property"/>
+        <result property="num" column="num" />
+        <result property="supplierEmail" column="supplier_email"/>
+        <result property="supplierName" column="supplier_name" />
+        <result property="price" column="price" />
+        <result property="unTaxPrice" column="un_tax_price" />
+        <result property="taxRate" column="tax_rate" />
+        <result property="unit" column="unit" />
+        <result property="invoiceType" column="invoice_type" />
+        <result property="header" column="header" />
+        <result property="orderTime" column="order_time" />
+        <result property="deliverTime" column="deliver_time" />
+        <result property="expressType" column="express_type" />
+        <result property="arrivalCycle" column="arrival_cycle" />
+        <result property="guarantee" column="guarantee" />
+        <result property="huiRemark" column="hui_remark" />
+        <result property="orderRemark" column="order_remark"/>
+        <result property="purchaseOrderTime" column="purchase_order_time" />
+        <result property="buyerPayType" column="buyer_pay_type" />
+        <result property="payType" column="pay_type"/>
+        <result property="buyerName" column="buyer_name" />
+        <result property="buyerEmail" column="buyer_email" />
+        <result property="cancelRemark" column="cancel_remark" />
+        <result property="cancelTime" column="cancel_time" />
+        <result property="payRemark" column="pay_remark" />
+        <result property="consignee" column="consignee" />
+        <result property="phone" column="phone" />
+        <result property="address" column="address" />
+        <result property="createTime" column="create_time" />
+        <result property="transactionId" column="transaction_id" />
+        <result property="receivedTime" column="received_time" />
+        <result property="delFlag" column="del_flag" />
+        <result property="ass" column="ass" />
+        <result property="supplierCode" column="supplier_code" />
+        <result property="imgSkuList" column="img_sku_list" />
+        <result property="settleStatus" column="settle_status" />
+        <result property="salePrice" column="sale_price" />
+    </resultMap>
+
+    <!--查询单个 id, sid, oid, type, state, sku_code, brand, name, cat, property, num, supplier_email, supplier_name, price, un_tax_price, tax_rate, unit, invoice_type, header, order_time, deliver_time, express_type, arrival_cycle, guarantee, hui_remark, order_remark, purchase_order_time, buyer_pay_type, pay_type, buyer_name, buyer_email, cancel_remark, cancel_time, pay_remark, consignee, phone, address, create_time, transaction_id, received_time,
+     del_flag, ass, supplier_code, img_sku_list, settle_status, sale_price-->
+    <select id="queryByDetailId" resultMap="TOrderDetailMap">
+        select *
+        from t_order_detail
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+  <!--  <select id="queryAllByLimit" resultMap="TOrderDetailMap">
+        select
+          id, sid, oid, type, state, sku_code, brand, name, cat, property, num, supplier_email, supplier_name, price, un_tax_price, tax_rate, unit, invoice_type, header, order_time, deliver_time, express_type, arrival_cycle, guarantee, hui_remark, order_remark, purchase_order_time, buyer_pay_type, pay_type, buyer_name, buyer_email, cancel_remark, cancel_time, pay_remark, consignee, phone, address, create_time, transaction_id, received_time, del_flag, ass, supplier_code, img_sku_list, settle_status, sale_price
+        from it-v2.t_order_detail
+        limit #{offset}, #{limit}
+    </select>-->
+
+    <!--通过实体作为筛选条件查询-->
+   <!-- <select id="queryAll" resultMap="TOrderDetailMap">
+        select
+          id, sid, oid, type, state, sku_code, brand, name, cat, property, num, supplier_email, supplier_name, price, un_tax_price, tax_rate, unit, invoice_type, header, order_time, deliver_time, express_type, arrival_cycle, guarantee, hui_remark, order_remark, purchase_order_time, buyer_pay_type, pay_type, buyer_name, buyer_email, cancel_remark, cancel_time, pay_remark, consignee, phone, address, create_time, transaction_id, received_time, del_flag, ass, supplier_code, img_sku_list, settle_status, sale_price
+        from it-v2.t_order_detail
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="sid != null and sid != ''">
+                and sid = #{sid}
+            </if>
+            <if test="oid != null and oid != ''">
+                and oid = #{oid}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="state != null">
+                and state = #{state}
+            </if>
+            <if test="skuCode != null and skuCode != ''">
+                and sku_code = #{skuCode}
+            </if>
+            <if test="brand != null and brand != ''">
+                and brand = #{brand}
+            </if>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="cat != null and cat != ''">
+                and cat = #{cat}
+            </if>
+            <if test="property != null and property != ''">
+                and property = #{property}
+            </if>
+            <if test="num != null">
+                and num = #{num}
+            </if>
+            <if test="supplierEmail != null and supplierEmail != ''">
+                and supplier_email = #{supplierEmail}
+            </if>
+            <if test="supplierName != null and supplierName != ''">
+                and supplier_name = #{supplierName}
+            </if>
+            <if test="price != null">
+                and price = #{price}
+            </if>
+            <if test="unTaxPrice != null">
+                and un_tax_price = #{unTaxPrice}
+            </if>
+            <if test="taxRate != null">
+                and tax_rate = #{taxRate}
+            </if>
+            <if test="unit != null and unit != ''">
+                and unit = #{unit}
+            </if>
+            <if test="invoiceType != null and invoiceType != ''">
+                and invoice_type = #{invoiceType}
+            </if>
+            <if test="header != null and header != ''">
+                and header = #{header}
+            </if>
+            <if test="orderTime != null">
+                and order_time = #{orderTime}
+            </if>
+            <if test="deliverTime != null">
+                and deliver_time = #{deliverTime}
+            </if>
+            <if test="expressType != null and expressType != ''">
+                and express_type = #{expressType}
+            </if>
+            <if test="arrivalCycle != null and arrivalCycle != ''">
+                and arrival_cycle = #{arrivalCycle}
+            </if>
+            <if test="guarantee != null and guarantee != ''">
+                and guarantee = #{guarantee}
+            </if>
+            <if test="huiRemark != null and huiRemark != ''">
+                and hui_remark = #{huiRemark}
+            </if>
+            <if test="orderRemark != null and orderRemark != ''">
+                and order_remark = #{orderRemark}
+            </if>
+            <if test="purchaseOrderTime != null">
+                and purchase_order_time = #{purchaseOrderTime}
+            </if>
+            <if test="buyerPayType != null and buyerPayType != ''">
+                and buyer_pay_type = #{buyerPayType}
+            </if>
+            <if test="payType != null and payType != ''">
+                and pay_type = #{payType}
+            </if>
+            <if test="buyerName != null and buyerName != ''">
+                and buyer_name = #{buyerName}
+            </if>
+            <if test="buyerEmail != null and buyerEmail != ''">
+                and buyer_email = #{buyerEmail}
+            </if>
+            <if test="cancelRemark != null and cancelRemark != ''">
+                and cancel_remark = #{cancelRemark}
+            </if>
+            <if test="cancelTime != null">
+                and cancel_time = #{cancelTime}
+            </if>
+            <if test="payRemark != null and payRemark != ''">
+                and pay_remark = #{payRemark}
+            </if>
+            <if test="consignee != null and consignee != ''">
+                and consignee = #{consignee}
+            </if>
+            <if test="phone != null and phone != ''">
+                and phone = #{phone}
+            </if>
+            <if test="address != null and address != ''">
+                and address = #{address}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="transactionId != null and transactionId != ''">
+                and transaction_id = #{transactionId}
+            </if>
+            <if test="receivedTime != null">
+                and received_time = #{receivedTime}
+            </if>
+            <if test="delFlag != null">
+                and del_flag = #{delFlag}
+            </if>
+            <if test="ass != null">
+                and ass = #{ass}
+            </if>
+            <if test="supplierCode != null and supplierCode != ''">
+                and supplier_code = #{supplierCode}
+            </if>
+            <if test="imgSkuList != null and imgSkuList != ''">
+                and img_sku_list = #{imgSkuList}
+            </if>
+            <if test="settleStatus != null and settleStatus != ''">
+                and settle_status = #{settleStatus}
+            </if>
+            <if test="salePrice != null">
+                and sale_price = #{salePrice}
+            </if>
+        </where>
+    </select>-->
+
+    <!--新增所有列-->
+ <!--   <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into it-v2.t_order_detail(sid, oid, type, state, sku_code, brand, name, cat, property, num, supplier_email, supplier_name, price, un_tax_price, tax_rate, unit, invoice_type, header, order_time, deliver_time, express_type, arrival_cycle, guarantee, hui_remark, order_remark, purchase_order_time, buyer_pay_type, pay_type, buyer_name, buyer_email, cancel_remark, cancel_time, pay_remark, consignee, phone, address, create_time, transaction_id, received_time, del_flag, ass, supplier_code, img_sku_list, settle_status, sale_price)
+        values (#{sid}, #{oid}, #{type}, #{state}, #{skuCode}, #{brand}, #{name}, #{cat}, #{property}, #{num}, #{supplierEmail}, #{supplierName}, #{price}, #{unTaxPrice}, #{taxRate}, #{unit}, #{invoiceType}, #{header}, #{orderTime}, #{deliverTime}, #{expressType}, #{arrivalCycle}, #{guarantee}, #{huiRemark}, #{orderRemark}, #{purchaseOrderTime}, #{buyerPayType}, #{payType}, #{buyerName}, #{buyerEmail}, #{cancelRemark}, #{cancelTime}, #{payRemark}, #{consignee}, #{phone}, #{address}, #{createTime}, #{transactionId}, #{receivedTime}, #{delFlag}, #{ass}, #{supplierCode}, #{imgSkuList}, #{settleStatus}, #{salePrice})
+    </insert>
+-->
+    <!--通过主键修改数据-->
+    <!--<update id="update">
+        update it-v2.t_order_detail
+        <set>
+            <if test="sid != null and sid != ''">
+                sid = #{sid},
+            </if>
+            <if test="oid != null and oid != ''">
+                oid = #{oid},
+            </if>
+            <if test="type != null">
+                type = #{type},
+            </if>
+            <if test="state != null">
+                state = #{state},
+            </if>
+            <if test="skuCode != null and skuCode != ''">
+                sku_code = #{skuCode},
+            </if>
+            <if test="brand != null and brand != ''">
+                brand = #{brand},
+            </if>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="cat != null and cat != ''">
+                cat = #{cat},
+            </if>
+            <if test="property != null and property != ''">
+                property = #{property},
+            </if>
+            <if test="num != null">
+                num = #{num},
+            </if>
+            <if test="supplierEmail != null and supplierEmail != ''">
+                supplier_email = #{supplierEmail},
+            </if>
+            <if test="supplierName != null and supplierName != ''">
+                supplier_name = #{supplierName},
+            </if>
+            <if test="price != null">
+                price = #{price},
+            </if>
+            <if test="unTaxPrice != null">
+                un_tax_price = #{unTaxPrice},
+            </if>
+            <if test="taxRate != null">
+                tax_rate = #{taxRate},
+            </if>
+            <if test="unit != null and unit != ''">
+                unit = #{unit},
+            </if>
+            <if test="invoiceType != null and invoiceType != ''">
+                invoice_type = #{invoiceType},
+            </if>
+            <if test="header != null and header != ''">
+                header = #{header},
+            </if>
+            <if test="orderTime != null">
+                order_time = #{orderTime},
+            </if>
+            <if test="deliverTime != null">
+                deliver_time = #{deliverTime},
+            </if>
+            <if test="expressType != null and expressType != ''">
+                express_type = #{expressType},
+            </if>
+            <if test="arrivalCycle != null and arrivalCycle != ''">
+                arrival_cycle = #{arrivalCycle},
+            </if>
+            <if test="guarantee != null and guarantee != ''">
+                guarantee = #{guarantee},
+            </if>
+            <if test="huiRemark != null and huiRemark != ''">
+                hui_remark = #{huiRemark},
+            </if>
+            <if test="orderRemark != null and orderRemark != ''">
+                order_remark = #{orderRemark},
+            </if>
+            <if test="purchaseOrderTime != null">
+                purchase_order_time = #{purchaseOrderTime},
+            </if>
+            <if test="buyerPayType != null and buyerPayType != ''">
+                buyer_pay_type = #{buyerPayType},
+            </if>
+            <if test="payType != null and payType != ''">
+                pay_type = #{payType},
+            </if>
+            <if test="buyerName != null and buyerName != ''">
+                buyer_name = #{buyerName},
+            </if>
+            <if test="buyerEmail != null and buyerEmail != ''">
+                buyer_email = #{buyerEmail},
+            </if>
+            <if test="cancelRemark != null and cancelRemark != ''">
+                cancel_remark = #{cancelRemark},
+            </if>
+            <if test="cancelTime != null">
+                cancel_time = #{cancelTime},
+            </if>
+            <if test="payRemark != null and payRemark != ''">
+                pay_remark = #{payRemark},
+            </if>
+            <if test="consignee != null and consignee != ''">
+                consignee = #{consignee},
+            </if>
+            <if test="phone != null and phone != ''">
+                phone = #{phone},
+            </if>
+            <if test="address != null and address != ''">
+                address = #{address},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="transactionId != null and transactionId != ''">
+                transaction_id = #{transactionId},
+            </if>
+            <if test="receivedTime != null">
+                received_time = #{receivedTime},
+            </if>
+            <if test="delFlag != null">
+                del_flag = #{delFlag},
+            </if>
+            <if test="ass != null">
+                ass = #{ass},
+            </if>
+            <if test="supplierCode != null and supplierCode != ''">
+                supplier_code = #{supplierCode},
+            </if>
+            <if test="imgSkuList != null and imgSkuList != ''">
+                img_sku_list = #{imgSkuList},
+            </if>
+            <if test="settleStatus != null and settleStatus != ''">
+                settle_status = #{settleStatus},
+            </if>
+            <if test="salePrice != null">
+                sale_price = #{salePrice},
+            </if>
+        </set>
+        where id = #{id}
+    </update>-->
+
+    <!--通过主键删除-->
+   <!-- <delete id="deleteById">
+        delete from it-v2.t_order_detail where id = #{id}
+    </delete>-->
+
+</mapper>
