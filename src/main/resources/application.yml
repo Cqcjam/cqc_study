@@ -1,4 +1,29 @@
 server:
     port: 8083
     address: localhost
+spring:          #表示该配置直接为Spring容器负责处理
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver       #配置MySQL的驱动程序类
+        url: jdbc:mysql://10.246.75.18:3306/it-v2?&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Hongkong&zeroDateTimeBehavior=convertToNull
+        username: admin
+        password: www.netease.com
+        dbcp2:
+        　　min-idle: 5         #数据库连接池的最小维持连接数
+        　　initial-size: 5     #初始化提供的连接数
+        　　max-total: 5          #最大的连接数
+        　　max-wait-millis: 200        #等待连接获取的最大超时时间
 
+
+    mail:
+        host: service.netease.com
+        username: it_purchase@service.netease.com
+        password: Pur_it20180411
+#        port:
+#        port:
+mybatis:
+    mapper-locations: classpath:mapper/*Mapper.xml
+    typeAliasesPackage: com.cqc.learning.spring.entity
+#debug mybatis
+logging:
+    level:
+        com.cqc.learning.spring.mapper.mappers: DEBUG

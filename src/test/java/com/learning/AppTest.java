@@ -12,6 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -19,6 +20,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  * 执行顺序
  * beforeClass-->before-->testInstance-->after-->afterClass
  */
+@EnableAutoConfiguration
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {AppTest.class, MainApplication.class})
 public class AppTest {
@@ -58,4 +60,36 @@ public class AppTest {
 	public static void testAfterClass1() {
 		System.out.println("afterClass1 test。。。");
 	}
+
+
+
+//	@Test
+//	public void testMail(){
+//		sendAttachmentsMail("caoqingcong@corp.netease.com", "test", "test", "E:\\cert\\证书使用说明.txt");
+//	}
+	/**
+	 * 发送带附件内容
+	 * @param to
+	 * @param subject
+	 * @param content
+	 * @param filePath
+	 */
+	/*public void sendAttachmentsMail(String to, String subject, String content, String filePath){
+		MimeMessage message = javaMailSender.createMimeMessage();
+		try {
+			MimeMessageHelper helper = new MimeMessageHelper(message, true);
+			helper.setFrom("it_purchase@service.netease.com");
+			helper.setTo(to);
+			helper.setSubject(subject);
+			helper.setText(content, true);
+			FileSystemResource file = new FileSystemResource(new File(filePath));
+			String fileName = filePath.substring(filePath.lastIndexOf(File.separator));
+			helper.addAttachment(fileName, file);
+			javaMailSender.send(message);
+			System.out.println("带附件的邮件已经发送。");
+		} catch (MessagingException e) {
+			System.out.println("发送带附件的邮件时发生异常！");
+		}
+	}*/
+
 }
