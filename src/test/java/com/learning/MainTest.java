@@ -3,8 +3,10 @@ package com.learning;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author caoqingcong
@@ -16,7 +18,31 @@ public class MainTest {
 
     public static final long DAY_TIMESTAMP = 24 * 60 * 60 * 1000L;
     public static void main(String[] args) {
-       /* String currentDate = DateUtil.format(new Date(), new SimpleDateFormat("yyyy-MM-dd"));
+
+        List<String> list = new ArrayList<>();
+        list.add("aa");
+        list.add("bb");
+        list.add("cc");
+        list.add("dd");
+        list.removeIf(index -> index.equals("aa"));
+        for (String str : list) {
+            System.out.println(str);
+        }
+        /*Date startTime = DateUtil.parse("2020-06-03 00:00:00");
+        Date endTime = DateUtil.parse("2020-06-05 23:59:59");
+        // 判断是否是账期日
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String currentDate =  format.format(new Date());
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(endTime);
+        cal.add(Calendar.DATE, 1);
+        String accountDate = format.format(cal.getTime());
+        // 不是账期日，不生成账单
+        if (!currentDate.equals(accountDate)) {
+            return;
+        }*/
+
+        /* String currentDate = DateUtil.format(new Date(), new SimpleDateFormat("yyyy-MM-dd"));
         System.out.println(currentDate);
         Date date = DateUtil.parse("2020-05-24 10:35:11");
         System.out.println(date.toString().substring(0, 10).replace("-", "."));
