@@ -65,7 +65,7 @@ public class AppTest {
 
 //	@Test
 //	public void testMail(){
-//		sendAttachmentsMail("caoqingcong@corp.netease.com", "test", "test", "E:\\cert\\证书使用说明.txt");
+//		sendAttachmentsMail("caoqingcong@corp.cqc.com", "test", "test", "E:\\cert\\证书使用说明.txt");
 //	}
 	/**
 	 * 发送带附件内容
@@ -78,7 +78,7 @@ public class AppTest {
 		MimeMessage message = javaMailSender.createMimeMessage();
 		try {
 			MimeMessageHelper helper = new MimeMessageHelper(message, true);
-			helper.setFrom("it_purchase@service.netease.com");
+			helper.setFrom("it_purchase@service.cqc.com");
 			helper.setTo(to);
 			helper.setSubject(subject);
 			helper.setText(content, true);
