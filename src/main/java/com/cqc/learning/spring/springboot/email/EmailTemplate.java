@@ -55,7 +55,7 @@
 //            MimeMessage message = mailSender.createMimeMessage();
 //            try {
 //                MimeMessageHelper helper = new MimeMessageHelper(message, true);
-//                helper.setFrom("it_purchase@service.netease.com");
+//                helper.setFrom("it_purchase@service.cqc.com");
 //                helper.setTo(to);
 //                helper.setSubject(subject);
 //                helper.setText(content, true);

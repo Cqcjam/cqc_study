@@ -2,7 +2,7 @@ package com.cqc.learning.config;
 
 /**
  * @author caoqingcong
- * @projectName netease-purchase-v2
+ * @projectName cqc-purchase-v2
  * @packageName org.dfw.app.domain.common
  * @date 2020/5/22-10:53
  */

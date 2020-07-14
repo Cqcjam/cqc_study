@@ -2,12 +2,13 @@ package com.cqc.learning.java.file;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.io.*;
-import java.nio.channels.FileChannel;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * 文件工具类
- * Copyright © 2019 Hundsun Technologies Inc. All Rights Reserved
  **/
 public class FileUtils {
 
@@ -54,23 +55,23 @@ public class FileUtils {
 	protected static boolean writeToFile(String message, String fileName, String filePath) {
 		boolean flag;
 		FileOutputStream outStream = null;
-		try {
+		try (FileOutputStream outputStream = new FileOutputStream(filePath + fileName)){
 			flag = isExists(filePath, fileName);
 			if (flag) {
-				outStream = new FileOutputStream(new File(filePath + fileName));
+				//outStream = new FileOutputStream(new File(filePath + fileName));
 				byte[] buf = new byte[message.length()];
-				outStream.write(buf, 0 , message.length());
+				outputStream.write(buf, 0 , message.length());
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 			flag = false;
-		} finally {
+		} /*finally {
 			try {
 				outStream.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
+		}*/
 		return flag;
 	}
 }

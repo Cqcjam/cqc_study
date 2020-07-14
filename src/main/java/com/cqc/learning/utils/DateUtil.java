@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * @description 日期工具类
  * @author caoqingcong
- * @projectName netease-shop-v2
+ * @projectName cqc-shop-v2
  * @packageName org.dfw.spark.api.util
  * @date 2020/4/7-19:14
  *//*

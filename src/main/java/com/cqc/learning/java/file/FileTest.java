@@ -2,7 +2,6 @@ package com.cqc.learning.java.file;
 
 /**
  * 文件测试类
- * Copyright © 2019 Hundsun Technologies Inc. All Rights Reserved
  **/
 public class FileTest {
 
