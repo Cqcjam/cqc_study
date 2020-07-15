@@ -3,7 +3,7 @@ package com.cqc.learning.java.stream;
 /**
  * 文件描述
  *
- * @ProductName: Hundsun
+ * @ProductName: cqc
  * @ProjectName: 3Working
  * @Package: com.cqc.learning.java.stream
  * @Description: note
@@ -14,7 +14,7 @@ package com.cqc.learning.java.stream;
  * @UpdateRemark: The modified content
  * @Version: 1.0
  * <p>
- * Copyright © 2019 Hundsun Technologies Inc. All Rights Reserved
+ * Copyright © 2019 cqc Technologies Inc. All Rights Reserved
  **/
 @FunctionalInterface
 public interface FunctionInterfaceTest {

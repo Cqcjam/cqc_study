@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 /**
  * 动态代理
  *
- * @ProductName: Hundsun
+ * @ProductName: cqc
  * @ProjectName: 3Working
  * @Package: com.cqc.learning.designmode.constructmode.proxy
  * @Description: note
@@ -17,7 +17,7 @@ import java.lang.reflect.Method;
  * @UpdateRemark: The modified content
  * @Version: 1.0
  * <p>
- * Copyright © 2019 Hundsun Technologies Inc. All Rights Reserved
+ * Copyright © 2019 cqc Technologies Inc. All Rights Reserved
  **/
 public class DynamicProxySubject implements InvocationHandler {
 

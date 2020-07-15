@@ -10,7 +10,7 @@ import java.util.Scanner;
  * 文件描述
  * 两个链表相加和
  * <p>
- * Copyright © 2020 Hundsun Technologies Inc. All Rights Reserved
+ * Copyright © 2020 cqc Technologies Inc. All Rights Reserved
  **/
 public class LinkedPlus {
 

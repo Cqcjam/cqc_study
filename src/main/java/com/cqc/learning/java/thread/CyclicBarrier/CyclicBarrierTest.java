@@ -5,7 +5,6 @@ import java.util.concurrent.*;
 /**
  * 文件描述
  *
- * @ProductName: Hundsun
  * @ProjectName: 3Working
  * @Package: com.cqc.learning.java.thread.countdown
  * @Description: note
@@ -16,7 +15,6 @@ import java.util.concurrent.*;
  * @UpdateRemark: The modified content
  * @Version: 1.0
  * <p>
- * Copyright © 2019 Hundsun Technologies Inc. All Rights Reserved
  **/
 public class CyclicBarrierTest {
 

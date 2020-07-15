@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSON;
 /**
  * 循环打印矩阵
  * @author hspcadmin
- * Copyright © 2020 Hundsun Technologies Inc. All Rights Reserved
+ * Copyright © 2020 cqc Technologies Inc. All Rights Reserved
  **/
 public class MatrixCirclePrint {
 

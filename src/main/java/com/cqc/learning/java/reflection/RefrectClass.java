@@ -3,7 +3,7 @@ package com.cqc.learning.java.reflection;
 /**
  * 文件描述
  * <p>
- * Copyright © 2019 Hundsun Technologies Inc. All Rights Reserved
+ * Copyright © 2019 cqc Technologies Inc. All Rights Reserved
  **/
 public class RefrectClass {
 	private Integer age;

@@ -8,7 +8,7 @@ import java.util.Random;
  * 文件描述
  * 链表比较排序
  * @author caoqc
- * Copyright © 2019 Hundsun Technologies Inc. All Rights Reserved
+ * Copyright © 2019 cqc Technologies Inc. All Rights Reserved
  **/
 public class LinkedCompareSort {
 

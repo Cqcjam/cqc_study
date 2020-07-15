@@ -4,7 +4,7 @@ package com.cqc.learning.designmode.createmode.simplefactory;
 /**
  * 文件描述
  *
- * Copyright © 2019 Hundsun Technologies Inc. All Rights Reserved
+ * Copyright © 2019 cqc Technologies Inc. All Rights Reserved
  **/
 public class SimpleFactory {
 

@@ -2,13 +2,14 @@ package com.cqc.learning.algorithm;
 
 import com.alibaba.fastjson.JSON;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 /**
  * 文件描述
  * @author hspcadmin
- * Copyright © 2020 Hundsun Technologies Inc. All Rights Reserved
+ * Copyright © 2020 cqc Technologies Inc. All Rights Reserved
  **/
 public class ArrayToBinaryTree {
 

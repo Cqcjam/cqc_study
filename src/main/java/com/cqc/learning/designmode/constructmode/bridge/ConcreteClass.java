@@ -5,7 +5,7 @@ import com.cqc.learning.designmode.createmode.builder.ConcreteBuilder;
 /**
  * 文件描述
  *
- * @ProductName: Hundsun
+ * @ProductName: cqc
  * @ProjectName: 3Working
  * @Package: com.cqc.learning.designmode.constructmode.bridge
  * @Description: note
@@ -16,7 +16,7 @@ import com.cqc.learning.designmode.createmode.builder.ConcreteBuilder;
  * @UpdateRemark: The modified content
  * @Version: 1.0
  * <p>
- * Copyright © 2019 Hundsun Technologies Inc. All Rights Reserved
+ * Copyright © 2019 cqc Technologies Inc. All Rights Reserved
  **/
 public class ConcreteClass extends AbstractSuperClass{
 
