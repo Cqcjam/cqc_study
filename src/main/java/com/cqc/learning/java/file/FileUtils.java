@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -30,7 +31,7 @@ public class FileUtils {
 	 * @param fileName 文件名称
 	 * @return boolean
 	 */
-	protected static boolean isExists(String filePath, String fileName) {
+	public boolean isExists(String filePath, String fileName) {
 		File file = new File(filePath + File.separatorChar + fileName);
 		boolean flag = true;
 		try {
@@ -52,26 +53,40 @@ public class FileUtils {
 	 * @param fileName 文件名称
 	 * @return boolean
 	 */
-	protected static boolean writeToFile(String message, String fileName, String filePath) {
+	public boolean writeToFile(String message, String fileName, String filePath) {
 		boolean flag;
 		FileOutputStream outStream = null;
 		try (FileOutputStream outputStream = new FileOutputStream(filePath + fileName)){
 			flag = isExists(filePath, fileName);
 			if (flag) {
-				//outStream = new FileOutputStream(new File(filePath + fileName));
 				byte[] buf = new byte[message.length()];
 				outputStream.write(buf, 0 , message.length());
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 			flag = false;
-		} /*finally {
-			try {
-				outStream.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}*/
+		}
 		return flag;
+	}
+
+	/**
+	 * 读取文件
+	 * @param filePath 文件路径
+	 * @param fileName 文件名称
+	 * @return boolean
+	 */
+	public byte[] readFile(String fileName, String filePath) {
+		boolean flag;
+		byte[] buf = new byte[1024];
+		try (FileInputStream inputStream = new FileInputStream(filePath + fileName)){
+			flag = isExists(filePath, fileName);
+			if (flag) {
+				inputStream.read(buf);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			logger.info("读取异常:[{}]", e.getMessage());
+		}
+		return buf;
 	}
 }

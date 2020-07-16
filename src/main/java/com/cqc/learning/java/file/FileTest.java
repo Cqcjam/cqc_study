@@ -6,10 +6,10 @@ package com.cqc.learning.java.file;
 public class FileTest {
 
 	public static void main(String[] args) {
-		boolean flag = FileUtils.isExists("D:\\", "test.txt");
+		boolean flag = FileUtils.getInstance().isExists("D:\\", "test.txt");
 		System.out.println(flag);
 
-		System.out.println(FileUtils.writeToFile("hello word", "test.txt", "D:\\"));
+		System.out.println(FileUtils.getInstance().writeToFile("hello word", "test.txt", "D:\\"));
 
 	}
 }
