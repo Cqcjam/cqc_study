@@ -109,7 +109,7 @@ public class CommonRedisTool {
     /**
      * set
      */
-    public void set(final String key, final String value) {
+    public void set(final String key, final String value) throws Exception{
         template.exec(new RedisTemplate.TransactionCallable<Void>() {
 
             @Override
@@ -128,7 +128,7 @@ public class CommonRedisTool {
      * 哈希set
      */
     public void hSet(final String key, final String feild, final String value,
-        final Integer expireTime) {
+        final Integer expireTime) throws Exception{
         template.exec(new RedisTemplate.TransactionCallable<Void>() {
 
             @Override
@@ -148,7 +148,7 @@ public class CommonRedisTool {
     /**
      * 哈希增长指定字段
      */
-    public void hIncr(final String key, final String feild, final long value) {
+    public void hIncr(final String key, final String feild, final long value) throws Exception{
         template.exec(new RedisTemplate.TransactionCallable<Void>() {
 
             @Override
@@ -164,7 +164,7 @@ public class CommonRedisTool {
     /**
      * 哈希删除某字段
      */
-    public void hDeleteFeild(final String key, final String feild) {
+    public void hDeleteFeild(final String key, final String feild) throws Exception{
         template.exec(new RedisTemplate.TransactionCallable<Void>() {
 
             @Override
@@ -180,7 +180,7 @@ public class CommonRedisTool {
     /**
      * 删除
      */
-    public void delete(final String key) {
+    public void delete(final String key) throws Exception{
         template.exec(new RedisTemplate.TransactionCallable<Void>() {
 
             @Override
@@ -194,7 +194,7 @@ public class CommonRedisTool {
     }
 
 
-    public void expire(final String key, final Integer expireTime) {
+    public void expire(final String key, final Integer expireTime) throws Exception{
         template.exec(new RedisTemplate.TransactionCallable<Void>() {
 
             @Override

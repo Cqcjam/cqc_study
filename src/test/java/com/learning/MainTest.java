@@ -1,12 +1,12 @@
 package com.learning;
 
+import com.google.common.base.Strings;
+
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author caoqingcong
@@ -18,16 +18,11 @@ public class MainTest {
 
     public static final long DAY_TIMESTAMP = 24 * 60 * 60 * 1000L;
     public static void main(String[] args) {
-
-        List<String> list = new ArrayList<>();
-        list.add("aa");
-        list.add("bb");
-        list.add("cc");
-        list.add("dd");
-        list.removeIf(index -> index.equals("aa"));
-        for (String str : list) {
-            System.out.println(str);
+        String str = "dd";
+        if (Strings.isNullOrEmpty(str)) {
+            System.out.println("ues");
         }
+
         /*Date startTime = DateUtil.parse("2020-06-03 00:00:00");
         Date endTime = DateUtil.parse("2020-06-05 23:59:59");
         // 判断是否是账期日

@@ -69,7 +69,7 @@ public class RedisTemplate {
      * @param callback CALLBACK
      * @return RET
      */
-    public <T> T exec(TransactionCallable<T> callback) {
+    public <T> T exec(TransactionCallable<T> callback) throws Exception {
         if (callback == null) {
             return null;
         }
