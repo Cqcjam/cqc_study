@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 public class Main {
 
     public static void main(String[] args) {
-        ThreadPoolExecutor executor = ThreadUtils.createExecutors(1, 2, 3L, new LinkedBlockingQueue<>(1));
+        ThreadPoolExecutor executor = ThreadPoolUtils.createExecutors(1, 2, 3L, new LinkedBlockingQueue<>(1));
         executor.execute(new Test());
     }
 

@@ -31,7 +31,7 @@ public class FileUtils {
 	 * @param fileName 文件名称
 	 * @return boolean
 	 */
-	public boolean isExists(String filePath, String fileName) {
+	public static boolean isExists(String filePath, String fileName) {
 		File file = new File(filePath + File.separatorChar + fileName);
 		boolean flag = true;
 		try {
@@ -75,9 +75,9 @@ public class FileUtils {
 	 * @param fileName 文件名称
 	 * @return boolean
 	 */
-	public byte[] readFile(String fileName, String filePath) {
+	public static byte[] readFile(String fileName, String filePath) {
 		boolean flag;
-		byte[] buf = new byte[1024];
+		byte[] buf = new byte[1024 * 1024];
 		try (FileInputStream inputStream = new FileInputStream(filePath + fileName)){
 			flag = isExists(filePath, fileName);
 			if (flag) {

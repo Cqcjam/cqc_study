@@ -1,12 +1,11 @@
 package com.learning;
 
-import com.google.common.base.Strings;
-
-import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author caoqingcong
@@ -18,11 +17,6 @@ public class MainTest {
 
     public static final long DAY_TIMESTAMP = 24 * 60 * 60 * 1000L;
     public static void main(String[] args) {
-        String str = "dd";
-        if (Strings.isNullOrEmpty(str)) {
-            System.out.println("ues");
-        }
-
         /*Date startTime = DateUtil.parse("2020-06-03 00:00:00");
         Date endTime = DateUtil.parse("2020-06-05 23:59:59");
         // 判断是否是账期日
@@ -60,14 +54,19 @@ public class MainTest {
       /* Date startDate = DateUtil.parse("2020-05-18 00:00:00");
        Date endDate = DateUtil.parse("2020-05-24 23:59:59");
        getNextMonth(startDate,endDate,"period");*/
-        double profitPrice = 5.6;
+       /* double profitPrice = 5.6;
         double totalPurchasePrice = 123;
         System.out.println((BigDecimal.valueOf(profitPrice)
                 .divide(new BigDecimal(totalPurchasePrice), 4, BigDecimal.ROUND_HALF_DOWN))
                 .multiply(new BigDecimal(100)).toPlainString().substring(0, 4));
         System.out.println(new BigDecimal(BigDecimal.valueOf(0)
                 .divide(new BigDecimal(totalPurchasePrice), 4, BigDecimal.ROUND_HALF_DOWN)
-                .multiply(new BigDecimal(100)).toPlainString().substring(0, 4)));
+                .multiply(new BigDecimal(100)).toPlainString().substring(0, 4)));*/
+        List<String> test = new ArrayList<>();
+        List<String> test1 = new ArrayList<>();
+        test1.addAll(test);
+        System.out.println(test1.size());
+
     }
 
     public static String getDatePlusDay(Date strDate, int days) {

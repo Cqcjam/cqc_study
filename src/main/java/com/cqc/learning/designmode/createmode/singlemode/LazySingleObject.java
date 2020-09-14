@@ -6,7 +6,7 @@ package com.cqc.learning.designmode.createmode.singlemode;
  **/
 public class LazySingleObject {
 
-	private static LazySingleObject instance;
+	private volatile static LazySingleObject instance;
 
 	private LazySingleObject() {
 	}

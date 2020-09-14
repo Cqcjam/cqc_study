@@ -1,8 +1,8 @@
 package com.cqc.learning.java.reflection;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.HashMap;
 
 /**
  * 文件描述
@@ -24,6 +24,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		try {
+			// 第一种获取对象实例
 			RefrectClass obj = (RefrectClass)Class.forName("com.cqc.learning.java.reflection.RefrectClass").newInstance();
 			Field[] fields = obj.getClass().getDeclaredFields();
 			for (Field f : fields) {
@@ -35,13 +36,28 @@ public class Main {
 			for (Method m : methods) {
 				System.out.println("Method=" + m.getName());
 			}
-			HashMap map = new HashMap();
 			System.out.println(obj);
+			// 第一种获取对象实例
+			Class clz = Class.forName("com.cqc.learning.java.reflection.RefrectClass");
+			Method method = clz.getMethod("setName", String.class);
+			Constructor constructor = clz.getConstructor();
+			RefrectClass object = (RefrectClass)constructor.newInstance();
+			System.out.println(method.invoke(object, "cqc"));
+			System.out.println(object.getName());
+			Method method2 = obj.getClass().getMethod("setName", String.class);
+			Object value = method2.invoke(obj, "cqc");
+			System.out.println(value);
+
+
+			//第二种获取对象实例 需要提前知道类属性
+			Class clazz = RefrectClass.class;
+			//第三种使用类对象 getClass
+
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
-		} catch (InstantiationException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

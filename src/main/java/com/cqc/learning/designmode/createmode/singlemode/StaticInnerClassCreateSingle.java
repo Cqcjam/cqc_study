@@ -1,6 +1,7 @@
 package com.cqc.learning.designmode.createmode.singlemode;
 
 /**
+ * @author caoqingcong
  * 文件描述
  * 线程安全且性能不受影响
  **/
@@ -13,11 +14,11 @@ public class StaticInnerClassCreateSingle {
 		private StaticInnerClassCreateSingle() {
 		}
 
-		public static final StaticInnerClassCreateSingle getInstance() {
+		public static StaticInnerClassCreateSingle getInstance() {
 			return LazyHolder.INSTANCE;
 		}
 
-		public void getMethod(){
+		void getMethod(){
 			System.out.println("hello static single");
 		}
 }
