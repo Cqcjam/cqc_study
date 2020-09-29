@@ -13,8 +13,16 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+   <!-- <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>2.1.2.RELEASE</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>-->
     <dependencies>
-
         <!--spring boot start-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -185,7 +193,7 @@
             <artifactId>jedis</artifactId>
             <version>2.9.0</version>
         </dependency>
-       <!--mq客户端-->
+        <!--mq客户端-->
         <dependency>
             <groupId>com.rabbitmq</groupId>
             <artifactId>amqp-client</artifactId>
@@ -202,16 +210,16 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.13</version>
         </dependency>
-       <!-- <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
-            <version>1.2.0</version>
-        </dependency>-->
+        <!-- <dependency>
+             <groupId>org.mybatis</groupId>
+             <artifactId>mybatis</artifactId>
+             <version>3.1.1</version>
+         </dependency>
+         <dependency>
+             <groupId>org.mybatis</groupId>
+             <artifactId>mybatis-spring</artifactId>
+             <version>1.2.0</version>
+         </dependency>-->
         <!--mybatis-->
         <!-- 通用mapper -->
         <dependency>
