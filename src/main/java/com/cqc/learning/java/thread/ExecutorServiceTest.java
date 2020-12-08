@@ -27,7 +27,7 @@ public class ExecutorServiceTest {
                                                              TimeUnit.SECONDS,new ArrayBlockingQueue<Runnable>(200),
                                                              new ThreadPoolExecutor.AbortPolicy());
         List<Future<String>> list = new ArrayList<>();
-        for (int i = 0; i < 10000 ; i++) {
+        for (int i = 0; i < 100 ; i++) {
             Future<String> submit  = pool.submit(test.new CallTest("ThreadName=" + i));
             list.add(submit);
         }

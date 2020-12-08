@@ -1,5 +1,7 @@
 package com.cqc.learning.java.thread;
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
+
 import java.util.concurrent.*;
 
 /**
@@ -27,6 +29,8 @@ public class ThreadPoolUtils {
 
     protected static ThreadPoolExecutor createExecutors(Integer coreThread, Integer maxThread, Long aliveTime,
                                                      BlockingQueue<Runnable> queue) {
-        return new ThreadPoolExecutor(coreThread, maxThread, aliveTime, TimeUnit.SECONDS, queue);
+        return new ThreadPoolExecutor(coreThread, maxThread, aliveTime, TimeUnit.SECONDS, queue,
+                new ThreadFactoryBuilder().setNameFormat("threadPool-1").build(),
+                new ThreadPoolExecutor.AbortPolicy());
     }
 }

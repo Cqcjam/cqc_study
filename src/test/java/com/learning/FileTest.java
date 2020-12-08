@@ -17,7 +17,7 @@ public class FileTest {
 
     public static void main(String[] args) {
         //获取我方数据库中的手机号再去重
-        List<String> insideList2 = getMySelfData();
+        List<String> insideList2 = getMySelfData("E:\\filter_final.csv");
         //获取电信方的手机号再去重
         List<String> outSideList2 = getOutChinaNetData();
         //取两者差集
@@ -60,17 +60,17 @@ public class FileTest {
      * 先查询我方数据库中的手机号再去重
      * @return List<String>
      */
-    private static List<String> getMySelfData() {
+    private static List<String> getMySelfData(String path) {
         //存储数据库中自己手机号的数据
         List<String> myselfList = new LinkedList<>();
         LineIterator it = null;
         try {
             //读取内部系统文件
-            it = FileUtils.lineIterator(new File("E:\\var\\inside\\mySelfDatabase.txt"));
+            it = FileUtils.lineIterator(new File(path));
             while (it.hasNext()) {
                 String line = it.nextLine();
                 //新增每行记录
-                myselfList.add(line);
+                myselfList.add(line.substring(0, line.indexOf(",")));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -78,6 +78,7 @@ public class FileTest {
             LineIterator.closeQuietly(it);
         }
         //去重后的手机号
+
         List<String> insideList2 = myselfList.stream().distinct().collect(Collectors.toList());
         System.out.println("系统内部数据个数："  + insideList2.size());
         return insideList2;

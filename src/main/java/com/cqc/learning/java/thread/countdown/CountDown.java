@@ -1,5 +1,7 @@
 package com.cqc.learning.java.thread.countdown;
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
+
 import java.util.concurrent.*;
 
 /**
@@ -25,43 +27,38 @@ public class CountDown {
 	private static String count;
 	public static void main(String[] args) {
 		CountDownLatch latch = new CountDownLatch(MAX_COUNT);
-		ThreadPoolExecutor executor = new ThreadPoolExecutor(
+		ExecutorService executor = new ThreadPoolExecutor(
 			CORE_THREAD
 			,MAX_THREAD
 			,TIME_WAIT
 			,TimeUnit.SECONDS
-			,new LinkedBlockingQueue<>()
+			,new LinkedBlockingQueue<>(1024), new ThreadFactoryBuilder().setNameFormat("factory1").build()
 		);
 		try {
 			for (int i = 0; i < MAX_COUNT; i++) {
-				Future<String> future = executor.submit(new SubThread(i));
+				Future<String> future = executor.submit(new SubThread(i, latch));
 				latch.countDown();
-				System.out.println(future.get());
 			}
-			latch.await();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				System.out.println("Main Thread start");
-			}
-		}).start();
-
 	}
 
 	public static class SubThread implements Callable<String>{
 
 		private Integer threadCount;
 
-		private SubThread(Integer threadCount){
+		private CountDownLatch latch;
+
+		private SubThread(Integer threadCount, CountDownLatch latch){
 			this.threadCount = threadCount;
+			this.latch = latch;
 		}
 		@Override
 		public String call() throws Exception {
-			String res = Thread.currentThread().getId() + "--" + threadCount;
+			String resTemp =Thread.currentThread().getName() + "--" + threadCount;
+			latch.await();
+			String res = Thread.currentThread().getName() + "--" + threadCount;
 			System.out.println(res);
 			count = count + 1;
 			return count;

@@ -2,10 +2,10 @@ package com.learning;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author caoqingcong
@@ -16,7 +16,36 @@ import java.util.List;
 public class MainTest {
 
     public static final long DAY_TIMESTAMP = 24 * 60 * 60 * 1000L;
+
     public static void main(String[] args) {
+
+
+
+        System.out.println(CurrencyCode.getCurrencyCodeByDesc("美元"));
+
+        System.out.println(LocalDate.now().getDayOfMonth());
+        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar=Calendar.getInstance();
+        int month=calendar.get(Calendar.MONTH);
+        calendar.set(Calendar.MONTH, month-1);
+        calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
+        String lastDayOfLastMonth = format.format(calendar.getTime());
+        System.out.println(lastDayOfLastMonth);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        System.out.println(sdf.format(System.currentTimeMillis()));
+        //创建 Instant 实例
+        Instant instant = Instant.now();
+        System.out.println(instant);
+
+        Instant instant1 = Instant.ofEpochSecond(20);
+        System.out.println(instant1);
+
+        Instant instant2 = Instant.ofEpochSecond(30, 100);
+        System.out.println(instant2);
+
+        Instant instant3 = Instant.ofEpochMilli(1000);
+        System.out.println(instant3);
         /*Date startTime = DateUtil.parse("2020-06-03 00:00:00");
         Date endTime = DateUtil.parse("2020-06-05 23:59:59");
         // 判断是否是账期日
@@ -62,10 +91,10 @@ public class MainTest {
         System.out.println(new BigDecimal(BigDecimal.valueOf(0)
                 .divide(new BigDecimal(totalPurchasePrice), 4, BigDecimal.ROUND_HALF_DOWN)
                 .multiply(new BigDecimal(100)).toPlainString().substring(0, 4)));*/
-        List<String> test = new ArrayList<>();
+        /*List<String> test = new ArrayList<>();
         List<String> test1 = new ArrayList<>();
         test1.addAll(test);
-        System.out.println(test1.size());
+        System.out.println(test1.size());*/
 
     }
 
@@ -133,23 +162,26 @@ public class MainTest {
             System.out.println("accountStart=" + accountStart + "-accountEnd=" + accountEnd);
         }
     }
-        public static Date getStartTime(Date time) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(time);
-            calendar.set(Calendar.MILLISECOND, 0);
-            calendar.set(Calendar.SECOND, 0);
-            calendar.set(Calendar.MINUTE, 0);
-            calendar.set(Calendar.HOUR, 0);
-            return calendar.getTime();
-        }
+
+    public static Date getStartTime(Date time) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(time);
+        calendar.set(Calendar.MILLISECOND, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.HOUR, 0);
+        return calendar.getTime();
+    }
+
     /**
      * 获取两个时间的间隔天数，不足1天以1天计算
+     *
      * @param startTime
      * @param endTime
      * @return
      */
     public static int getIntervalDays(Date startTime, Date endTime) {
         long days = (getStartTime(endTime).getTime() - getStartTime(startTime).getTime()) / DAY_TIMESTAMP;
-        return (int)days + 1;
+        return (int) days + 1;
     }
 }
