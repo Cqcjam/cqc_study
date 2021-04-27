@@ -4,8 +4,7 @@ package com.cqc.learning.designmode.createmode.builder;
  * 文件描述
  *
  **/
-public interface
-IBuilder {
+public interface IBuilder {
 
 	void buildPartA();
 

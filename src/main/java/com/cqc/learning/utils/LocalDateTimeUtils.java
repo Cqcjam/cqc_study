@@ -1,11 +1,15 @@
 package com.cqc.learning.utils;
 
+import org.apache.commons.lang3.StringUtils;
+
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Period;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -131,8 +135,71 @@ public class LocalDateTimeUtils {
 
 
     public static void main(String[] args) {
-        System.out.println(getCurrentTime("yyyy-MM-dd HH:mm:ss"));
-        System.out.println(getCurrentTime("yyyy-MM-dd HH:mm:ss.SSS"));
+       // System.out.println(getCurrentTime("yyyy-MM-dd HH:mm:ss"));
+      //  System.out.println(getCurrentTime("yyyy-MM-dd HH:mm:ss.SSS"));
+        //System.out.println(getNextMonth("2021-02-02"));
+
+      /*  double d = 0.155;
+        BigDecimal b = new BigDecimal(String.valueOf(d));
+        d = b.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        System.out.println(d);
+
+        double d1 = 114.165;
+        System.out.println(String.format("%.2f", d1));
+
+        double d2 = 114.145;
+        NumberFormat nf = NumberFormat.getNumberInstance();
+// 保留两位小数
+        nf.setMaximumFractionDigits(2);
+// 如果不需要四舍五入，可以使用RoundingMode.DOWN
+        nf.setRoundingMode(RoundingMode.UP);
+        System.out.println(nf.format(d2));
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM");
+        System.out.println(simpleDateFormat.format(new Date()));*/
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+        int month = calendar.get(Calendar.MONTH);
+        calendar.set(Calendar.MONTH, month - 1);
+        calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
+            //获取上月的最后一天
+            String lastDayOfLastMonth = format.format(calendar.getTime());
+        System.out.println(lastDayOfLastMonth.substring(0,7));
+
+        System.out.println(getNextMonth("2021-02-25"));
     }
 
+
+    /**
+     * 获取汇率日期的使用月份-即汇率日期的下一个月份
+     * @param rateDate
+     * @return
+     */
+    private static String getNextMonth(String rateDate) {
+        //如果为空 默认使用当前月
+        if (StringUtils.isBlank(rateDate)) {
+            LocalDate localDate = LocalDate.now();
+            rateDate = assembleDate(localDate);
+        } else {
+            LocalDate localDate = LocalDate.parse(rateDate, DateTimeFormatter.ofPattern(yyyyMMdd2));
+            localDate = localDate.minusMonths(-1);
+            rateDate = assembleDate(localDate);
+        }
+        return rateDate;
+    }
+
+    /**
+     * 拼接字符
+     * @param localDate
+     * @return
+     */
+    private static  String assembleDate(LocalDate localDate) {
+            StringBuilder sb = new StringBuilder();
+            String curreentYear = String.valueOf(localDate.getYear());
+            int monthCount = localDate.getMonthValue();
+            String curreentMonth = monthCount < 10
+                    ? "0" + monthCount : String.valueOf(monthCount) ;
+            return sb.append(curreentYear)
+                    .append("-").append(curreentMonth).toString();
+    }
 }
