@@ -92,4 +92,57 @@ public class AppTest {
 		}
 	}*/
 
+	public static Node transferBinaryTree(Node node) {
+		//
+		if (null == node) {
+			return null;
+		}
+		//如果左子树不为空 且右子树不为空则进行交换
+		if (null != node.left || null != node.right) {
+			Node temp = new Node(0);
+			temp.data = node.left.data;
+			node.left.data = node.right.data;
+			node.right.data = temp.data;
+		}
+		/*// 存在为空情况
+		if (null == node.left) {
+			Node temp = new Node(0);
+			node.left = temp;
+			node.left.data = node.right.data;
+			node.right.data = null;
+		}
+		if (null == node.right){
+			Node temp = new Node(0);
+			node.right = temp;
+			node.right.data = node.left.data;
+			node.left.data = null;
+		}*/
+		//递归操作左右字数
+		transferBinaryTree(node.left);
+		transferBinaryTree(node.right);
+		return node;
+	}
+
+	/**
+	 * 节点定义
+	 */
+	static class Node {
+		Node left;
+		Node right;
+		Integer data;
+		Node (Integer data) {
+			this.data = data;
+		}
+
+	}
+
+	public static void main(String[] args) {
+		Node node = new Node(4);
+		node.right = new Node(3);
+		node.left = new Node(2);
+		System.out.println(JSON.toJSONString(transferBinaryTree((node))));
+	}
+
+
+
 }
