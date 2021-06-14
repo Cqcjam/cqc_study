@@ -14,7 +14,7 @@ public class Producer {
 	private static final String ROUTING_KEY = "cqc_route_key";
 	private static final String EXCHANGE_NAME = "cqc_exchange";
 	private static final String QUEUE_NAME = "cqc_queue";
-	private static final String IP_ADDR = "10.20.64.193";
+	private static final String IP_ADDR = "10.20.64.192";
 	private static final String CONNECTIME_TIMEOUT = "30000";
 	private static final Integer PORT = 5672;
 
